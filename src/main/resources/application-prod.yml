@@ -1,6 +1,6 @@
 server:
   context-path: /
-  port: 8082
+  port: 8081
 name : spring boot
 word : hello
 say : " say: ${word},${name} "

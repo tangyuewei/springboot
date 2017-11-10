@@ -1,9 +1,12 @@
 spring:
   profiles:
     active: dev
-name: spring boot
-word: hello
-say: " say: ${word},${name} "
-boy:
-  name: tyw
-  age: 28
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/tboss
+    username: root
+    password: 123
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
