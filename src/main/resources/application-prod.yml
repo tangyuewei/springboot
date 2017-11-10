@@ -1,0 +1,9 @@
+server:
+  context-path: /
+  port: 8082
+name : spring boot
+word : hello
+say : " say: ${word},${name} "
+boy :
+  name : tyw
+  age : 29

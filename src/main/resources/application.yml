@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: dev
+name: spring boot
+word: hello
+say: " say: ${word},${name} "
+boy:
+  name: tyw
+  age: 28
