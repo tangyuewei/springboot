@@ -1,4 +1,4 @@
-package com.tyw;
+package com.tyw.domian;
 import javax.persistence.Entity;
 
 import javax.persistence.GeneratedValue;

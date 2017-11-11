@@ -1,5 +1,6 @@
-package com.tyw;
+package com.tyw.repository;
 
+import com.tyw.domian.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

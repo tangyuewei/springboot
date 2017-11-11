@@ -1,5 +1,7 @@
-package com.tyw;
+package com.tyw.controller;
 
+import com.tyw.domian.User;
+import com.tyw.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +14,7 @@ import java.util.List;
 @RestController
 public class UserController {
     @Autowired
-    private  UserRepository userRepository;
+    private UserRepository userRepository;
     /*查询用户列表*/
     @GetMapping("/users")
     public List<User> userList(){

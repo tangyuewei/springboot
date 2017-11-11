@@ -1,5 +1,6 @@
-package com.tyw;
+package com.tyw.controller;
 
+import com.tyw.properties.Boyproperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
