@@ -19,8 +19,7 @@ public class UserServiceTest {
     private UserService userService;
     @Test
     public void findOne(){
-        Integer id = 1001;
-        User user = userService.findOne(id);
+        User user = userService.findOne(1001);
         System.out.print(user);
         Assert.assertEquals(new String("tyw"),user.getUsername());
     }

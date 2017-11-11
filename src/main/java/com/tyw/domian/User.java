@@ -70,4 +70,16 @@ public class User {
 
     public User() {
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "Id=" + Id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", state=" + state +
+                '}';
+    }
 }

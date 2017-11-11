@@ -34,4 +34,9 @@ public class UserController {
     public void delUser(@RequestParam("id") Integer id){
         userRepository.delete(id);
     }
+    /*查询用户*/
+    @GetMapping("/users/{id}")
+    public User findUser(@RequestParam(value = "id") Integer id){
+        return userRepository.findOne(id);
+    }
 }
