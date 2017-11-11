@@ -13,18 +13,18 @@ import java.util.Date;
 public class User {
     @Id
     @GeneratedValue
-    private Long Id;
+    private Integer Id;
     private String username;
     private String password;
     private Date createTime;
     private Date updateTime;
     private Integer state;
 
-    public Long getId() {
+    public Integer getId() {
         return Id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         Id = id;
     }
 
