@@ -5,6 +5,7 @@ import com.tyw.domian.User;
 import com.tyw.enums.ResultEnum;
 import com.tyw.exception.UserException;
 import com.tyw.repository.UserRepository;
+import com.tyw.service.UserService;
 import com.tyw.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
@@ -19,11 +20,11 @@ import java.util.List;
 @RestController
 public class UserController {
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
     /*查询用户列表*/
     @GetMapping("/users")
     public List<User> userList(){
-        return userRepository.findAll();
+        return userService.findAll();
     }
     @PostMapping("/users")
     public Result<User> addUser(@RequestParam("username") String username,
@@ -36,15 +37,15 @@ public class UserController {
         if(user.getPassword().equals(user.getUsername())){
             throw new UserException(ResultEnum.CANNOTSAME);
         }
-        return ResultUtil.success(userRepository.save(user));
+        return ResultUtil.success(userService.save(user));
     }
     @DeleteMapping("/users")
     public void delUser(@RequestParam("id") Integer id){
-        userRepository.delete(id);
+        userService.delete(id);
     }
     /*查询用户*/
     @GetMapping("/users/{id}")
-    public User findUser(@RequestParam(value = "id") Integer id){
-        return userRepository.findOne(id);
+    public User findUser(@PathVariable Integer id){
+        return userService.findOne(id);
     }
 }

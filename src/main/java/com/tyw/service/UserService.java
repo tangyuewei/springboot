@@ -1,18 +1,15 @@
 package com.tyw.service;
 
 import com.tyw.domian.User;
-import com.tyw.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by tboss on 2017/11/12.
  */
-@Service
-public class UserService {
-    @Autowired
-    private UserRepository userRepository;
-    public User findOne(Integer id){
-        return userRepository.findOne(id);
-    }
+public interface UserService {
+    public User findOne(Integer id);
+    public User save(User user);
+    public void delete(Integer id);
+    public List<User> findAll();
 }
