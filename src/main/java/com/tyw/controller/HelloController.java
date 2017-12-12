@@ -1,6 +1,6 @@
 package com.tyw.controller;
 
-import com.tyw.properties.Boyproperties;
+import com.tyw.properties.BoyProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,11 +16,11 @@ public class HelloController {
     @Value("${say}")
     private String say;
     @Autowired
-    private Boyproperties boyproperties;
+    private BoyProperties boyProperties;
 
     @GetMapping({"/hello","/hi"})
     public String hello(){
-        return say + boyproperties.getName();
+        return say + boyProperties.getName();
     }
     @PostMapping({"/say/{word}"})
     public String say(@PathVariable(value = "word",required = false) String word){
