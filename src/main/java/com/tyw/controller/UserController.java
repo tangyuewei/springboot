@@ -7,6 +7,8 @@ import com.tyw.exception.UserException;
 import com.tyw.repository.UserRepository;
 import com.tyw.service.UserService;
 import com.tyw.utils.ResultUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -18,15 +20,18 @@ import java.util.List;
  * Created by tboss on 2017/11/10.
  */
 @RestController
+@Api(value = "userApi")
 public class UserController {
     @Autowired
     private UserService userService;
     /*查询用户列表*/
     @GetMapping("/users")
+    @ApiOperation(value = "users" ,notes = "users list")
     public List<User> userList(){
         return userService.findAll();
     }
     @PostMapping("/users")
+    @ApiOperation(value = "users" ,notes = "users insert")
     public Result<User> addUser(@RequestParam("username") String username,
                           @RequestParam("password") String pwd){
         User user = new User();
