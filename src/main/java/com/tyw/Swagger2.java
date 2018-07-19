@@ -32,7 +32,7 @@ public class Swagger2 {
         return new ApiInfoBuilder()
                 .title("Spring Boot APIs")
                 .description("Spring Boot")
-                .termsOfServiceUrl("http://localhost:8080/springboot")
+                .termsOfServiceUrl("http://localhost:8080/swagger-ui.html")
                 .contact("tyw")
                 .version("1.0")
                 .build();
