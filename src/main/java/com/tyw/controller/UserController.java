@@ -4,13 +4,11 @@ import com.tyw.domian.Result;
 import com.tyw.domian.User;
 import com.tyw.enums.ResultEnum;
 import com.tyw.exception.UserException;
-import com.tyw.repository.UserRepository;
 import com.tyw.service.UserService;
 import com.tyw.utils.ResultUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;

@@ -2,10 +2,16 @@ spring:
   profiles:
     active: dev
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/tboss
-    username: root
-    password:
+    master:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://10.100.21.133:3306/tboss
+      username: root
+      password: 123
+    slave:
+          driver-class-name: com.mysql.jdbc.Driver
+          url: jdbc:mysql://127.0.0.1:3306/tboss
+          username: root
+          password:
   jpa:
     hibernate:
       ddl-auto: update

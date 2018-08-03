@@ -1,4 +1,4 @@
-package com.tyw.repository;
+package com.tyw.repository.slave;
 
 import com.tyw.domian.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Created by tboss on 2017/11/10.
  */
 
-public interface UserRepository extends JpaRepository<User,Integer> {
+public interface UserRepositorySlave extends JpaRepository<User,Integer> {
 
 }
