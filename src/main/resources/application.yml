@@ -4,20 +4,20 @@ spring:
   datasource:
     master:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://10.100.21.133:3306/tboss
+      url: jdbc:mysql://127.0.0.1:3306/tyw?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true
       username: root
       password: 123
     slave:
           driver-class-name: com.mysql.jdbc.Driver
-          url: jdbc:mysql://127.0.0.1:3306/tboss
+          url: jdbc:mysql://127.0.0.1:3306/tboss?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true
           username: root
-          password:
+          password: 123
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
   thymeleaf:
-    cache: true # Enable template caching.
+    cache: false # Enable template caching.
     check-template-location: true # Check that the templates location exists.
     content-type: text/html # Content-Type value.
     enabled: true # Enable MVC Thymeleaf view resolution.

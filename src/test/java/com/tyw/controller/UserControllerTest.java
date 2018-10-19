@@ -21,7 +21,7 @@ public class UserControllerTest {
     private MockMvc mockMvc;
     @Test
     public void findUser() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/users/1001").param("id","1001")).andExpect(MockMvcResultMatchers.content().string("abc"));
+        mockMvc.perform(MockMvcRequestBuilders.get("/users/1").param("id","1")).andExpect(MockMvcResultMatchers.content().json("{\"username\":\"tboss\",\"password\":\"123456\",\"createTime\":\"2018-08-236 07:03:45\",\"updateTime\":null,\"state\":\"INIT\",\"id\":1}"));
     }
 
 }

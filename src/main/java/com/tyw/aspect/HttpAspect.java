@@ -28,7 +28,7 @@ public class HttpAspect {
     @AfterReturning("log()")
     public void afterReturning(){logger.info("afterReturning");}
     @Around("log()")
-    public Object around(ProceedingJoinPoint joinPoint){
+    public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         Object result = null;
         try {
             logger.info("买票");
@@ -37,6 +37,7 @@ public class HttpAspect {
             logger.info("鼓掌!!!");
         } catch (Throwable e) {
             logger.info("出错咯");
+            throw e;
         }
         return result;
     }

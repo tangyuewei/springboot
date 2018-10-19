@@ -1,24 +1,31 @@
 package com.tyw.domian;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.Entity;
-
 import javax.persistence.GeneratedValue;
-
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by tboss on 2017/11/10.
  */
 @Entity
-public class User {
+public class User implements Serializable {
     @Id
     @GeneratedValue
     private Integer Id;
     private String username;
     private String password;
+    @JsonFormat(pattern = "YYYY-MM-DD HH:mm:ss")
     private Date createTime;
+    @JsonFormat(pattern = "YYYY-MM-DD HH:mm:ss")
     private Date updateTime;
-    private Integer state;
+    /**
+     * @see com.tyw.domian.UserState
+     * */
+    private String state;
 
     public Integer getId() {
         return Id;
@@ -60,11 +67,11 @@ public class User {
         this.updateTime = updateTime;
     }
 
-    public Integer getState() {
+    public String getState() {
         return state;
     }
 
-    public void setState(Integer state) {
+    public void setState(String state) {
         this.state = state;
     }
 

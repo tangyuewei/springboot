@@ -31,11 +31,11 @@ public class UserController {
     @PostMapping("/users")
     @ApiOperation(value = "users" ,notes = "users insert")
     public Result<User> addUser(@RequestParam("username") String username,
-                          @RequestParam("password") String pwd){
+                          @RequestParam("password") String pwd)throws UserException {
         User user = new User();
         user.setUsername(username);
         user.setPassword(pwd);
-        user.setState(1);
+        user.setState("初始化");
         user.setCreateTime(new Date());
         if(user.getPassword().equals(user.getUsername())){
             throw new UserException(ResultEnum.CANNOTSAME);

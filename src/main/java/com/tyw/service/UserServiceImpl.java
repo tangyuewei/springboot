@@ -2,12 +2,15 @@ package com.tyw.service;
 
 /*import com.tyw.db.DataSourceEnum;
 import com.tyw.db.DynamicDataSource;*/
+
 import com.tyw.domian.User;
 import com.tyw.repository.master.UserRepositoryMaster;
 import com.tyw.repository.slave.UserRepositorySlave;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
 import java.util.List;
 
@@ -22,13 +25,18 @@ public class UserServiceImpl implements UserService {
     private UserRepositoryMaster master;
     @Autowired
     private UserRepositorySlave slave;
+    @Autowired
+    private RedisTemplate<String, User> redisTemplate;
 
     @Override
     public User findOne(Integer id){
         /*DynamicDataSource.setDataSource(DataSourceEnum.MASTER.getName());
         User user = userRepository.findOne(id);
         DynamicDataSource.clearDataSource();*/
-        User user = slave.findOne(id);
+        User user = redisTemplate.opsForValue().get(id+"");
+        if(user == null ){
+            user = slave.findOne(id);
+        }
         return user;
     }
 
@@ -39,6 +47,7 @@ public class UserServiceImpl implements UserService {
         User users = userRepository.save(user);
         DynamicDataSource.clearDataSource();*/
         User users = master.save(user);
+        redisTemplate.opsForValue().set(user.getId().toString(), user);
         return users;
     }
 
