@@ -89,4 +89,12 @@ public class User implements Serializable {
                 ", state=" + state +
                 '}';
     }
+
+    public User(String username, String password, Date createTime, Date updateTime, String state) {
+        this.username = username;
+        this.password = password;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
+        this.state = state;
+    }
 }
