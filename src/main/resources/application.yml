@@ -49,3 +49,9 @@ spring:
         max-wait: 1000
     #Redis连接超时时间单位毫秒
     timeout: 2000
+# elasticsearch 配置 begin
+  data:
+    elasticsearch:
+      cluster-name: tyw
+      cluster-nodes: localhost:9300
+# elasticsearch 配置 end
