@@ -35,9 +35,21 @@ public class UserMongoDBTest {
     @Test
     public void findByUsername() {
         // 创建三个User，并验证User总数
-        userRepository.save(new User("didi", "123",new Date(),null,"INIT"));
-        userRepository.save(new User("mama", "123",new Date(),null,"INIT"));
-        userRepository.save(new User("kaka", "1323",new Date(),null,"INIT"));
+        User user = new User();
+        user.setUsername("didi");
+        user.setPassword("123");
+        user.setState("INIT");
+        User user1 = new User();
+        user1.setUsername("mama");
+        user1.setPassword("123");
+        user1.setState("INIT");
+        User user2 = new User();
+        user2.setUsername("kaka");
+        user2.setPassword("123");
+        user2.setState("INIT");
+        userRepository.save(user);
+        userRepository.save(user1);
+        userRepository.save(user2);
         Assert.assertEquals(3, userRepository.findAll().size());
         System.out.println(userRepository.findByUsername("didi"));
     }

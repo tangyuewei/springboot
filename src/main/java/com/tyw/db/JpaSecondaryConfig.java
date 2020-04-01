@@ -50,8 +50,8 @@ public class JpaSecondaryConfig {
     @Autowired
     private JpaProperties jpaProperties;
 
-    private Map<String, String> getVendorProperties(DataSource dataSource) {
-        return jpaProperties.getHibernateProperties(dataSource);
+    private Map<String, String> getVendorProperties(DataSource slave) {
+        return jpaProperties.getProperties();
     }
 
     @Bean(name = "transactionManagerSecondary")

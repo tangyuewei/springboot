@@ -36,7 +36,7 @@ public class UserController {
         user.setUsername(username);
         user.setPassword(pwd);
         user.setState("初始化");
-        user.setCreateTime(new Date());
+        user.setCreate_time(new Date());
         if(user.getPassword().equals(user.getUsername())){
             throw new UserException(ResultEnum.CANNOTSAME);
         }

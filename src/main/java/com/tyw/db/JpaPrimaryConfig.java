@@ -53,8 +53,8 @@ public class JpaPrimaryConfig {
     @Autowired
     private JpaProperties jpaProperties;
 
-    private Map<String, String> getVendorProperties(DataSource dataSource) {
-        return jpaProperties.getHibernateProperties(dataSource);
+    private Map<String, String> getVendorProperties(DataSource master) {
+        return jpaProperties.getProperties();
     }
 
     @Primary

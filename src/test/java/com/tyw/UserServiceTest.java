@@ -13,7 +13,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
 import java.util.Map;
 
 import static com.tyw.db.DynamicDataSource.getDataSource;
@@ -51,10 +50,5 @@ public class UserServiceTest {
         System.out.println("jdbc1======users:"+jdbc1);
         Map jdbc2= jdbcTemplate1.queryForMap("select * from user where id = '3'");
         System.out.println("jdbc2======users:"+jdbc2);
-        DynamicDataSource.setDataSource(DataSourceEnum.SLAVE.getName());
-        System.out.println("!!!!!!"+getDataSource());
-        User user = userService.findOne(3);
-        System.out.println("======user:"+user);
-        DynamicDataSource.clearDataSource();
     }
 }

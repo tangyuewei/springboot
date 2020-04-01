@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import java.util.List;
+import java.util.Optional;
 
 /*import static com.tyw.db.DynamicDataSource.getDataSource;*/
 
@@ -35,7 +36,7 @@ public class UserServiceImpl implements UserService {
         DynamicDataSource.clearDataSource();*/
         User user = redisTemplate.opsForValue().get(id+"");
         if(user == null ){
-            user = slave.findOne(id);
+            user = slave.getOne(id);
         }
         return user;
     }
@@ -57,7 +58,7 @@ public class UserServiceImpl implements UserService {
         /*DynamicDataSource.setDataSource(DataSourceEnum.MASTER.getName());
         userRepository.delete(id);
         DynamicDataSource.clearDataSource();*/
-        master.delete(id);
+        master.deleteById(id);
     }
 
     @Override
