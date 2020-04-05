@@ -38,7 +38,7 @@ spring:
     port: 6379
     host: localhost
     password: 123
-    jedis:
+    lettuce:
       pool:
         min-idle: 10
         # 连接池中的最大空闲连接
