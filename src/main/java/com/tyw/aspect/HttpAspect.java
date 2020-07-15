@@ -34,7 +34,7 @@ public class HttpAspect {
             logger.info("买票");
             logger.info("电影开始");
             result = joinPoint.proceed();
-            logger.info("鼓掌!!!");
+            logger.info("结束鼓掌!!!");
         } catch (Throwable e) {
             logger.info("出错咯");
             throw e;
